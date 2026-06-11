@@ -14,8 +14,14 @@ st.set_page_config(
 # ==========================
 # Load Model
 # ==========================
-model = joblib.load("bangalore_xgboost_model.pkl")
+st.write("App started")
+
 locations = joblib.load("locations.pkl")
+st.write("Locations loaded")
+
+st.stop()
+#model = joblib.load("bangalore_xgboost_model.pkl")
+#locations = joblib.load("locations.pkl")
 
 # ==========================
 # Custom CSS
