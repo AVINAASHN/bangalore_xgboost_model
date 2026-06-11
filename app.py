@@ -11,17 +11,24 @@ st.set_page_config(
     layout="wide"
 )
 
+
 # ==========================
 # Load Model
 # ==========================
-st.write("App started")
 
-locations = joblib.load("locations.pkl")
-st.write("Locations loaded")
+try:
+    model = joblib.load("bangalore_xgboost_model.pkl")
+    st.success("✅ Model loaded successfully")
+except Exception as e:
+    st.error(f"❌ Model Load Error: {e}")
+    st.stop()
 
-st.stop()
-#model = joblib.load("bangalore_xgboost_model.pkl")
-#locations = joblib.load("locations.pkl")
+try:
+    locations = joblib.load("locations.pkl")
+    st.success("✅ Locations loaded successfully")
+except Exception as e:
+    st.error(f"❌ Locations Load Error: {e}")
+    st.stop()
 
 # ==========================
 # Custom CSS
